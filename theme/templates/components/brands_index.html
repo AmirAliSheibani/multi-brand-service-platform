@@ -1,0 +1,50 @@
+{% load static %}
+<!-- BRANDS CAROUSEL -->
+<section id="brands" class="py-12">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <h2 class="text-2xl font-semibold mb-6">برندها</h2>
+
+    <div class="relative">
+      <!-- horizontal scroll wrapper -->
+      <div id="brands-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory py-6 hide-scrollbar cursor-grab">
+        {% for b in brands %}
+        <a href="{% url 'main:brand-page' b.slug %}" class="brand-card snap-center flex-shrink-0 w-72 md:w-80 lg:w-96 group block" draggable="false">
+          <div class="rounded-2xl overflow-hidden shadow-lg bg-gradient-to-b from-white to-white/90 relative">
+            <div class="h-40 md:h-48 bg-gray-100 overflow-hidden relative">
+              {% if b.hero_image %}
+              <img src="{% static b.hero_image %}" alt="{{ b.display_name }}" class="w-full h-full object-cover transform group-hover:scale-105 transition" />
+              {% else %}
+              <div class="w-full h-full flex items-center justify-center text-gray-400">بدون تصویر</div>
+              {% endif %}
+              <span class="absolute left-4 top-4 px-3 py-1 rounded-full text-xs font-medium text-white" style="background: linear-gradient(135deg, {{ b.primary }} 0%, {{ b.primary_dark }} 100%);">نماینده</span>
+            </div>
+            <div class="p-4 md:p-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-900">{{ b.display_name }}</h3>
+                  <p class="mt-1 text-sm text-gray-500">{{ b.subtitle }}</p>
+                </div>
+                <div class="flex-shrink-0">
+                  <div class="w-10 h-10 rounded-lg ring-1 ring-white/30" style="background: linear-gradient(135deg, {{ b.primary }} 0%, {{ b.primary_dark }} 100%);"></div>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-sm font-medium text-[color:var(--primary)]">کد نمایندگی: <span class="font-semibold">1290</span></span>
+                <span class="text-sm text-gray-500">مشاهده جزئیات »</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+
+      <!-- arrows -->
+     <div class="pointer-events-none absolute inset-y-0 left-0 right-0 flex items-center justify-between">
+        <button id="brands-next" class="carousel-btn pointer-events-auto ml-2" type="button" aria-label="قبلی">‹</button>
+        <button id="brands-prev" class="carousel-btn pointer-events-auto mr-2" type="button" aria-label="بعدی">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!-- ================= PRODUCTS ================= -->
+<section id="products" class="py-20 bg-[color:var(--bg-light)]">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-3xl font-semibold text-center mb-10">
+      دستگاه های تحت پوشش
+    </h2>
+
+   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      {% for product in brand.products %}
+      <article class="bg-white rounded-2xl shadow hover:shadow-2xl transition p-6">
+        <img src="{% static product.image %}" alt="{{ product.title }}" class="w-full aspect-[4/3] object-contain rounded-lg mb-4 bg-gray-100">
+        <h3 class="font-semibold text-lg mb-2">{{ product.title }}</h3>
+        <p class="text-sm text-gray-600 mb-4">{{ product.desc }}</p>
+        <a href="#contact" class="text-[color:var(--primary)] font-semibold hover:underline">
+          مشاوره و تماس
+        </a>
+      </article>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,658 @@
+
+
+
+/* ========================== ROOT VARIABLES ========================== */
+:root {
+  --fab-right: 1.25rem;
+  --primary: #907dda;
+  --primary-dark: #7f62c2;
+  --accent: #e5e4ea;
+  --font-light: #e7e6f1;
+  --font-dark: #333333;
+  --grey: #BDC4D0;
+  --bg-light: #F3F4F8;
+  --bg-dark: #2F3032;
+  --border-light: #e6e7ea;
+  --font-family: "Vazirmatn", Roboto, sans-serif;
+    scroll-behavior: smooth;
+}
+/* ========================== VAZIRMATN FONTS ========================== */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/webfonts/Vazirmatn-Thin.woff2") format("woff2"),
+       url("/theme/static/main/fonts/webfonts/Vazirmatn-Thin.woff") format("woff"),
+       url("/theme/static/main/fonts/Vazirmatn-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/webfonts/Vazirmatn-ExtraLight.woff2") format("woff2"),
+       url("/theme/static/main/fonts/webfonts/Vazirmatn-ExtraLight.woff") format("woff"),
+       url("/theme/static/main/fonts/Vazirmatn-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/webfonts/Vazirmatn-Light.woff2") format("woff2"),
+       url("/theme/static/main/fonts/webfonts/Vazirmatn-Light.woff") format("woff"),
+       url("/theme/static/main/fonts/Vazirmatn-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/Vazirmatn-Regular.woff2") format("woff2"),
+       url("/theme/static/main/fonts/Vazirmatn-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/Vazirmatn-Medium.woff2") format("woff2"),
+       url("/theme/static/main/fonts/Vazirmatn-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/Vazirmatn-SemiBold.woff2") format("woff2"),
+       url("/theme/static/main/fonts/Vazirmatn-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/Vazirmatn-Bold.woff2") format("woff2"),
+       url("/theme/static/main/fonts/Vazirmatn-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/Vazirmatn-ExtraBold.woff2") format("woff2"),
+       url("/theme/static/main/fonts/Vazirmatn-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/theme/static/main/fonts/Vazirmatn-Black.woff2") format("woff2"),
+       url("/theme/static/main/fonts/Vazirmatn-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* ========================== BRAND VARIABLES ========================== */
+body {
+  font-family: var(--font-family);
+  color: var(--font-dark);
+  background-color: var(--bg-light);
+}
+
+body[data-brand="samsung"] {
+  --primary: #1f6fff;
+  --primary-dark: #0b3ea8;
+  --font-dark: #0f172a;
+  --bg-light: #e8f0ff; /* آبی روشن محسوس */
+}
+
+body[data-brand="snowa"] {
+  --primary: #004E9A;
+  --primary-dark: #003366;
+  --font-dark: #0f172a;
+  --bg-light: #e3efff; /* آبی سرد صنعتی */
+}
+
+body[data-brand="lg"] {
+  --primary: #a50034;
+  --primary-dark: #7a0026;
+  --font-dark: #330012;
+  --bg-light: #ffe6ee; /* صورتی روشن ولی واضح */
+}
+
+body[data-brand="bosch"] {
+  --primary: #E20015;
+  --primary-dark: #9B0010;
+  --font-dark: #111827;
+  --bg-light: #ffe4e7; /* قرمز صنعتی روشن */
+}
+
+body[data-brand="daewoo"] {
+  --primary: #E11D48;
+  --primary-dark: #7a001c;
+  --font-dark: #0f172a;
+  --bg-light: #ffe4ea; /* سرخابی روشن کنترل‌شده */
+}
+
+body[data-brand="himalia"] {
+  --primary: #0A8A72;
+  --primary-dark: #056754;
+  --font-dark: #0f172a;
+  --bg-light: #e0f5f1; /* سبز تازه و تمیز */
+}
+
+body[data-brand="electrosteel"] {
+  --primary: #004080;
+  --primary-dark: #002B55;
+  --font-dark: #1C1C1C;
+  --bg-light: #e3eefb; /* سرمه‌ای صنعتی روشن */
+}
+
+body[data-brand="general-electric"] {
+  --primary: #0052B4;
+  --primary-dark: #003C8F;
+  --font-dark: #1C1C1C;
+  --bg-light: #e1ecfb; /* آبی سازمانی واضح */
+}
+
+/* ========================== CENTRAL AGENCY ========================== */
+
+body[data-brand="central-agency"] {
+  --primary: #111827;
+  --primary-dark: #000000;
+  --font-dark: #020617;
+  --bg-light: #e9ebef; /* خاکستری مدرن (کاملاً غیرسفید) */
+}
+
+
+/* ========================== HERO CONTAINER ========================== */
+body {
+  --hero-height: 80vh; /* ارتفاع پیش‌فرض دسکتاپ */
+}
+
+.home-bg {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  z-index: 0;
+}
+
+/* ========================== BRAND HERO IMAGES ========================== */
+body[data-brand="samsung"] .home-bg {
+  background-image: url('/theme/static/main/images/SAMSUNG/Samsung-emblem.png');
+}
+
+body[data-brand="bosch"] .home-bg {
+  background-image: url('/theme/static/main/images/BOSCH/Bosch-logo.svg.png');
+}
+body[data-brand="daewoo"] .home-bg {
+  background-image: url('/theme/static/main/images/DAEWOO/دوو.png');
+}
+body[data-brand="snowa"] .home-bg {
+  background-image: url('/theme/static/main/images/SNOWA/لوگو اسنوا.png');
+}
+body[data-brand="himalia"] .home-bg {
+  background-image: url('/theme/static/main/images/HIMALIA/Himalia-Logo-AlmasTRD.ir.png');
+}
+body[data-brand="electrosteel"] .home-bg {
+  background-image: url('/theme/static/main/images/ELECTROSTEEL/electrosteel-logo-1.png');
+}
+body[data-brand="general-electric"] .home-bg {
+  background-image: url('/theme/static/main/images/GENERALELECTRIC/GE-Symbol.png');
+}
+body[data-brand="central-agency"] .home-bg {
+  background-image: url('/theme/static/main/images/general/gemini-3-pro-image-preview-2k (nano-banana-pro)_a_دقیقا_همین_عکس_ولی_ا.png');
+      background-size: cover;
+  background-position: center;
+}
+
+
+body[data-brand="lg"] .home-bg {
+  background-image: url('/theme/static/main/images/LG/LG_logo_(2014).png');
+}
+
+/* ========================== HERO OVERLAY ========================== */
+.home-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.55));
+  z-index: 0;
+}
+
+body[data-brand="samsung"] .home-bg::before {
+  background: linear-gradient(to bottom, rgba(31,111,255,0.2), rgba(31,111,255,0.55));
+}
+
+body[data-brand="lg"] .home-bg::before {
+  background: linear-gradient(to bottom, rgba(165,0,52,0.2), rgba(165,0,52,0.5));
+}
+
+body[data-brand="snowa"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 78, 154, 0.18),
+    rgba(0, 51, 102, 0.6)
+  );
+}
+
+body[data-brand="daewoo"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(176, 0, 42, 0.18),
+    rgba(122, 0, 28, 0.6)
+  );
+}
+
+body[data-brand="bosch"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(226, 0, 21, 0.18),
+    rgba(155, 0, 16, 0.6)
+  );
+}
+
+body[data-brand="himalia"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 138, 114, 0.18),
+    rgba(5, 103, 84, 0.6)
+  );
+}
+
+body[data-brand="electrosteel"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 64, 128, 0.25),   /* سرمه‌ای روشن‌تر */
+    rgba(0, 43, 85, 0.65)     /* سرمه‌ای تیره‌تر */
+  );
+}
+
+body[data-brand="general-electric"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 82, 180, 0.25),   /* آبی روشن‌تر */
+    rgba(0, 60, 143, 0.65)    /* آبی تیره‌تر */
+  );
+}
+
+body[data-brand="central-agency"] .home-bg::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 24, 39, 0.25),
+    rgba(2, 0, 0, 0.65)
+  );
+}
+
+
+/* ========================== MEDIA QUERIES HERO ========================== */
+@media (max-width: 1024px) {
+  .home-bg {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-bg {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    background-size: cover;
+    background-position: center;
+  }
+  .animated-scroll {
+    display: none !important;
+  }
+  .mouse {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    font-size: 2rem;
+    line-height: 1.35;
+  }
+  .page-sub {
+    font-size: 0.95rem;
+  }
+}
+
+  /* Mouse scroll indicator */
+  .mouse {
+    width: 56px;
+    height: 88px;
+    border: 4px solid rgba(255,255,255,0.9);
+    border-radius: 24px;
+    position: relative;
+    margin: 0 auto 1.25rem;
+  }
+  .mouse .wheel {
+    width: 10px;
+    height: 10px;
+    border: 3px solid rgba(255,255,255,0.9);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 18px;
+    transform: translateX(-50%);
+    animation: scrollWheel 1.4s ease-in-out infinite;
+  }
+  @keyframes scrollWheel{
+    0% { transform: translate(-50%, 0); opacity: 1; }
+    100% { transform: translate(-50%, 40px); opacity: 0; }
+  }
+
+  /* Navbar-home sliding icon */
+  .navbar-home {
+    transform: translateX(120%);
+    opacity: 0;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+  .navbar.show-color .navbar-home {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  /* Animated small demo scroll card (converted) */
+  .animated-scroll {
+    border: 4px solid var(--primary-dark);
+    border-bottom-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 420px;
+    height: 320px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  }
+  .animated-scroll .scroll-body {
+    height: calc(100% - 60px);
+    overflow: hidden;
+    position: relative;
+  }
+  .animated-scroll .scroll-child{
+    width: 90%;
+    margin: 1rem auto;
+    height: 84px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+    transform: translateY(0);
+    animation: scrollDemo 5s linear infinite;
+  }
+  @keyframes scrollDemo{
+    0%, 30% { transform: translateY(0); }
+    40%, 60% { transform: translateY(-170px); }
+    70%, 90% { transform: translateY(-340px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* .focus effect for sections */
+  .section-focus h1, .section-focus .page-sub {
+    color: var(--primary) !important;
+  }
+  .section-focus .focus-after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ScrollTop */
+.scrollTop {
+  position: fixed;
+  right: var(--fab-right);
+  bottom: 1.25rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transform: translateY(80px);
+  opacity: 0.85;
+  transition: transform .2s ease, opacity .2s ease;
+}
+  .scrollTop.show {
+    transform: translateY(0);
+  }
+
+  /* Decorative wave bottom for hero (use currentColor) */
+  .hero-wave { color: white; }
+
+  /* mobile menu sliding panel */
+  .mobile-panel {
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform .25s ease, opacity .22s ease;
+  }
+  .mobile-panel.open {
+    transform: translateY(0);
+    opacity: 1;
+  }
+ش
+  /* Small accessibility focus */
+  a:focus { outline: 3px solid rgba(144,125,218,0.25); outline-offset: 3px; }
+
+.samsung-footer-wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("https://i.ibb.co/rZt4Nhg/wave.png");
+  background-size: 1000px 100px;
+}
+
+@keyframes samsung-wave-left {
+  0% { background-position-x: 1000px; }
+  100% { background-position-x: 0; }
+}
+
+@keyframes samsung-wave-right {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1000px; }
+}
+
+/* Primary CTA */
+.button-primary {
+  background-color: var(--primary);
+  color: white;
+  font-family: var(--font-family);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+}
+
+.button-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Secondary CTA */
+.button-secondary {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+  font-family: var(--font-family);
+  border: 1px solid var(--primary);
+  transition: all 0.25s ease;
+}
+
+.button-secondary:hover {
+  background-color: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+
+
+
+/* Floating Call Button */
+#call-fab {
+  position: fixed;
+  right: calc(var(--fab-right) - 4px);
+  bottom: 4.5rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 9999px;
+  background: #22c55e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(34,197,94,0.45);
+  z-index: 9999;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#call-fab:hover {
+  transform: scale(1.08);
+  box-shadow: 0 14px 40px rgba(34,197,94,0.6);
+}
+
+/* pulse subtle */
+#call-fab::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(34,197,94,0.35);
+  animation: callPulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes callPulse {
+  0% { transform: scale(1); opacity: .7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.hide-scrollbar::-webkit-scrollbar { height: 8px; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: thin; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+  /* active expand */
+  .brand-card { transition: transform .28s ease, box-shadow .28s ease; }
+  .brand-card.active-card { transform: scale(1.04); box-shadow: 0 20px 40px rgba(15,15,25,0.12); }
+#brands-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  cursor: grab;
+
+  /* critical for mobile */
+  touch-action: pan-y; /* vertical scroll allowed */
+  user-select: none;
+  -webkit-user-select: none;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+    align-items: center;
+}
+
+#brands-track::-webkit-scrollbar {
+  display: none;
+}
+
+#brands-track.cursor-grabbing {
+  cursor: grabbing;
+}
+
+/* ===============================
+   BRAND CARD
+   =============================== */
+
+.brand-card {
+  flex-shrink: 0;
+  scroll-snap-align: center;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* disable native drag */
+.brand-card,
+.brand-card * {
+  -webkit-user-drag: none;
+}
+
+/* prevent browser ghost image */
+.brand-card img {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ===============================
+   LINK HANDLING (IMPORTANT)
+   =============================== */
+
+/* disable pointer events on inner link
+   JS will handle real click */
+.brand-card a {
+  pointer-events: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* but card itself must receive events */
+.brand-card {
+  pointer-events: auto;
+}
+
+/* ===============================
+   ARROWS (PREV / NEXT)
+   =============================== */
+
+.carousel-btn {
+  pointer-events: auto;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* mobile-friendly buttons */
+@media (max-width: 768px) {
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+}
+
+/* ===============================
+   MOBILE HARD FIXES
+   =============================== */
+
+@media (max-width: 768px) {
+  /* ensure smooth swipe */
+  #brands-track {
+    scroll-snap-type: x mandatory;
+  }
+}
+
+/* ===============================
+   OPTIONAL: PERFORMANCE BOOST
+   =============================== */
+
+.brand-card {
+  will-change: transform;
+}

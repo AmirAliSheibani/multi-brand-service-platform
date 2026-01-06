@@ -1,0 +1,38 @@
+{% load static %}
+
+<!-- ================= DEMO (showcase / testimonials) ================= -->
+<section id="demo" class="py-20 bg-[color:var(--bg-light)]">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-3xl font-semibold text-center mb-8">
+      پیش‌نمایش و نظرات مشتریان
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+
+      <!-- Video / Showcase -->
+      <div class="rounded-2xl overflow-hidden shadow-lg bg-white p-6">
+  <h3 class="font-semibold mb-3">{{ brand.demo.video_title }}</h3>
+  <p class="text-gray-600 text-sm mb-4">{{ brand.demo.video_desc }}</p>
+
+  {% if brand.demo.video_image %}
+    <img src="{% static brand.demo.video_image %}" alt="نمایش خدمات {{ brand.name }}" class="w-full aspect-video object-cover rounded-md">
+  {% else %}
+    <div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-md"></div>
+  {% endif %}
+
+</div>
+
+      <!-- Testimonials -->
+      <div class="space-y-4">
+        {% for testimonial in brand.demo.testimonials %}
+        <blockquote class="p-6 bg-white rounded-2xl shadow">
+          <p class="text-gray-700">"{{ testimonial.text }}"</p>
+          <footer class="mt-3 text-sm text-gray-500">— {{ testimonial.author }}</footer>
+        </blockquote>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-3xl font-semibold text-center mb-10">
+      خدمات تخصصی
+    </h2>
+
+    <div class="grid gap-8 md:grid-cols-3">
+
+      {% for service in brand.services %}
+      <div class="text-center p-6">
+        <!-- Icon: placeholder svg, می‌تونیم بعداً داینامیک کنیم -->
+        <svg class="mx-auto mb-4 w-12 h-12 text-[color:var(--primary)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" />
+        </svg>
+        <h4 class="font-semibold mb-2">{{ service.title }}</h4>
+        <p class="text-sm text-gray-600">{{ service.desc }}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>

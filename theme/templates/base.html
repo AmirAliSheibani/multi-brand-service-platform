@@ -1,0 +1,34 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+
+  <title>{{ brand.seo.title }}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="description" content="{{ brand.seo.description }}">
+  <meta name="keywords" content="{{ brand.name }}, نمایندگی رسمی {{ brand.name }}">
+  <meta name="author" content="{{ brand.name }} Official Partner">
+  <meta name="robots" content="index, follow">
+
+  <link rel="stylesheet" href="{% static 'main/css/mycs123.css' %}">
+  {% tailwind_css %}
+
+  <style>
+    :root {
+      --primary: {{ brand.theme.primary }};
+      --primary-dark: {{ brand.theme.primary_dark }};
+    }
+  </style>
+</head>
+
+<body data-brand="{{ brand.slug }}" class="leading-normal tracking-normal">
+
+  {% block content %}{% endblock %}
+
+  <script src="{% static 'main/js/myj1.js' %}"></script>
+</body>
+</html>
